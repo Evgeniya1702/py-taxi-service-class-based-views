@@ -14,15 +14,20 @@
   <p><strong>Country </strong>{{ object.manufacturer.country }}</p>
   
   <h2>Driver of the Car</h2>
-    <th>Username</th>
-    <th>Model</th> 
-    <th>License number</th>
-  {% for driver in object_list %}
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Model</th> 
+        <th>License number</th>
+      </tr>
+    </thead>
+  </table>
+  {% for driver in object.drivers.all %}
     <tr>
-    <td>{{ driver.id }}</td>
-    <td><a href="{% url 'driver-detail' driver.id %}">{{ driver.username }}</a></td>
-    <td>{{ driver.username }}</td>
-    <td>{{ driver.license_number }}</td>
+      <td><a href="{% url 'driver-detail' driver.id %}">{{ driver.id }}</a></td>
+      <td>{{ driver.username }}</td>
+      <td>{{ driver.license_number }}</td>
   {% endfor %}
 {% endblock %}
 </body>

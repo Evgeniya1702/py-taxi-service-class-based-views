@@ -11,13 +11,17 @@
   <p><strong>First Name: </strong>{{ object.first_name }}</p>
   <p><strong>Last Name: </strong>{{ object.last_name }}</p>
   <h2>Cars of Driver</h2>
-  <tr>
-    <th>ID</th>
-    <th>Model</th> 
-    <th>Manufacturer</th>
-    <th>Year</th>
-  </tr>
-  {% for car in car_set_all %}
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Model</th> 
+        <th>Manufacturer</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+  </table>
+  {% for car in object.car_set.all %}
     <tr>
       <td><a href="{% url 'car-detail' car.id %}">{{ car.id }}</a></td>
       <td>{{ car.model }}</td>
